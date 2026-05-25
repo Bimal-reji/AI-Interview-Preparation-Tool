@@ -1,3 +1,4 @@
+const API = import.meta.env.VITE_API_URL;
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -124,7 +125,7 @@ export default function ResumeUpload() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("http://localhost:8000/analyze-resume", { method: "POST", body: formData });
+      const response = await fetch(`${API}/analyze-resume`, { method: "POST", body: formData,});
       const data = await response.json();
       localStorage.setItem("resumeData", JSON.stringify(data));
       setResult(data);

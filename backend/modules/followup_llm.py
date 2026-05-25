@@ -16,7 +16,6 @@ MODEL_NAME = "llama-3.1-8b-instant"
 # =====================================================
 
 def call_llm(prompt: str) -> str:
-
     try:
 
         response = client.chat.completions.create(

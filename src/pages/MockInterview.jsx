@@ -2,6 +2,8 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { FaceMesh } from "@mediapipe/face_mesh";
 import { Camera } from "@mediapipe/camera_utils";
 
+const API = import.meta.env.VITE_API_URL;
+
 // ======================================================
 // CONSTANTS
 // ======================================================
@@ -706,7 +708,7 @@ export default function MockInterview() {
     setLoading(true);
     try {
       const resumeData = JSON.parse(localStorage.getItem("resumeData") || "{}");
-      const response = await fetch("http://localhost:8000/generate-questions", {
+      const response = await fetch(`${API}/generate-questions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -780,7 +782,7 @@ export default function MockInterview() {
       const q = questions[currentIndex];
       const answerPayload = typedAnswer.trim() || selectedOption;
 
-      const response = await fetch("http://localhost:8000/evaluate-answer", {
+      const response = await fetch(`${API}/evaluate-answer`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: q.questionText, answer: answerPayload }),

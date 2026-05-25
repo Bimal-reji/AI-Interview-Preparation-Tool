@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
 // =====================================================
 // HELPERS
 // =====================================================
@@ -211,7 +212,7 @@ export default function Practice() {
       const matchedSkills = resumeData.matched_skills ?? [];
       const missingSkills = resumeData.missing_skills ?? [];
 
-      const response = await fetch("http://localhost:8000/generate-practice", {
+      const response = await fetch(`${API}/generate-practice`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ role, matched_skills: matchedSkills, missing_skills: missingSkills }),
