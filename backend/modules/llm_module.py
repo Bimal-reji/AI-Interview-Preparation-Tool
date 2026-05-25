@@ -1,6 +1,15 @@
 from groq import Groq
+from dotenv import load_dotenv
+import os
 
-client = Groq(api_key="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")  # Replace with your actual key
+from pathlib import Path
+
+env_path = Path(__file__).resolve().parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
+
+client = Groq(api_key = os.getenv("GROQ_API_KEY"))
+ # Replace with your actual key
 
 
 def call_llm(prompt, max_tokens=300):

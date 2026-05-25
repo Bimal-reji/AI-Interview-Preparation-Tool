@@ -1,8 +1,13 @@
 from groq import Groq
+from dotenv import load_dotenv
+import os
+from pathlib import Path
 
-client = Groq(
-    api_key="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"
-)
+env_path = Path(__file__).resolve().parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
+
+client = Groq(api_key = os.getenv("GROQ_API_KEY"))
 
 MODEL_NAME = "llama-3.1-8b-instant"
 

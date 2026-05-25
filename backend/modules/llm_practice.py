@@ -1,7 +1,15 @@
 from groq import Groq
 import json, re
+from dotenv import load_dotenv
+import os
 
-client = Groq(api_key="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")
+from pathlib import Path
+
+env_path = Path(__file__).resolve().parent.parent / ".env"
+
+load_dotenv(dotenv_path=env_path)
+
+client = Groq(api_key = os.getenv("GROQ_API_KEY"))
 
 
 def call_llm(prompt, max_tokens=300):
