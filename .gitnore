@@ -5,5 +5,7 @@ __pycache__/
 *.pyc
 .env
 backend/.env
+*.env
+config/secrets.py
 backend/uploads/
 .vscode/
