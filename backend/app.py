@@ -24,9 +24,7 @@ from modules.followup_llm import (
     generate_first_question,
 )
 
-from modules.speech_to_text import (
-    listen_from_mic,
-)
+
 
 # =====================================================
 # APP
@@ -143,10 +141,7 @@ async def analyze_resume(file: UploadFile = File(...)):
 # VOICE INPUT
 # =====================================================
 
-@app.get("/voice-input")
-async def voice_input():
-    text = listen_from_mic()
-    return {"text": text}
+
 
 # =====================================================
 # SELECT ROLE
