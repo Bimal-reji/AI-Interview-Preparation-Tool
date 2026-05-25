@@ -38,11 +38,13 @@ app = FastAPI(title="AI Interview Preparation System")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+       "https://ai-interview-preparation-tool.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+) 
 
 # =====================================================
 # UPLOAD FOLDER
