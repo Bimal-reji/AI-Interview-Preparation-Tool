@@ -24,7 +24,9 @@ from modules.followup_llm import (
     generate_first_question,
 )
 
-
+from modules.speech_to_text import (
+    listen_from_mic,
+)
 
 # =====================================================
 # APP
